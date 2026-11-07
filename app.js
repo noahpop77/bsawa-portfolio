@@ -139,7 +139,21 @@
 
     var chips = (h.credits || [])
       .map(function (c) {
-        return "<li>" + esc(c) + "</li>";
+        var label = typeof c === "string" ? c : c && c.label;
+        var target = typeof c === "string" ? "" : c && c.target;
+        if (!label) return "";
+        if (!target) {
+          return '<li><span class="hero__chip hero__chip--static">' + esc(label) + "</span></li>";
+        }
+        return (
+          '<li><a class="hero__chip" href="#' +
+          esc(target) +
+          '" data-scroll-target="' +
+          esc(target) +
+          '">' +
+          esc(label) +
+          "</a></li>"
+        );
       })
       .join("");
 
@@ -393,7 +407,9 @@
         actions += metricHtml(proj.metric);
 
         return (
-          '<article class="project-feature" style="--project-color:' +
+          '<article class="project-feature"' +
+          (proj.id ? ' id="' + esc(proj.id) + '"' : "") +
+          ' style="--project-color:' +
           esc(color) +
           '">' +
           producerMarkup(proj, "project-feature") +
@@ -447,7 +463,9 @@
         var actions = (proj.links || []).map(projectButton).join("");
 
         return (
-          '<article class="more-card" style="--project-color:' +
+          '<article class="more-card"' +
+          (proj.id ? ' id="' + esc(proj.id) + '"' : "") +
+          ' style="--project-color:' +
           esc(color) +
           '">' +
           producerMarkup(proj, "more-card") +
@@ -998,6 +1016,42 @@
     });
   }
 
+  /* ---------- selected work -> project links ---------- */
+
+  function flashProject(el) {
+    el.classList.remove("is-flash");
+    // Force a reflow so clicking the same chip again restarts the animation.
+    void el.offsetWidth;
+    el.classList.add("is-flash");
+    window.setTimeout(function () {
+      el.classList.remove("is-flash");
+    }, 1800);
+  }
+
+  function setupCreditLinks() {
+    var links = document.querySelectorAll("[data-scroll-target]");
+    if (!links.length) return;
+
+    links.forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        var id = link.getAttribute("data-scroll-target");
+        var target = id ? document.getElementById(id) : null;
+        if (!target) return;
+
+        event.preventDefault();
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        target.scrollIntoView({
+          behavior: reduceMotion ? "auto" : "smooth",
+          block: "start"
+        });
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, "", "#" + id);
+        }
+        flashProject(target);
+      });
+    });
+  }
+
   /* ---------- boot ---------- */
 
   renderNav();
@@ -1011,4 +1065,5 @@
   setupVideoModal();
   setupReveal();
   setupScrollSpy();
+  setupCreditLinks();
 })();

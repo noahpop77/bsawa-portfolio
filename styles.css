@@ -451,12 +451,29 @@ ul {
 
 .hero__chips li {
   border: 1px solid var(--border-strong);
-  padding: 4px 10px;
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   background: rgba(236, 229, 222, 0.5);
+}
+
+.hero__chip {
+  display: inline-block;
+  padding: 4px 10px;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+a.hero__chip:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+a.hero__chip:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 .hero__actions {
@@ -2313,5 +2330,26 @@ body.modal-open {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* ---------- Selected work -> project highlight ---------- */
+
+.project-feature.is-flash,
+.more-card.is-flash {
+  outline: 3px solid var(--primary);
+  outline-offset: -3px;
+  animation: project-flash 1.8s ease-out;
+}
+
+@keyframes project-flash {
+  0% {
+    outline-color: rgba(251, 80, 87, 0);
+  }
+  12% {
+    outline-color: rgba(251, 80, 87, 0.95);
+  }
+  100% {
+    outline-color: rgba(251, 80, 87, 0);
   }
 }

@@ -57,11 +57,11 @@ window.SITE = {
       "Software and security engineer with 5 years building secure, scalable systems. I automate security at scale, ship cloud infrastructure, and lead teams from concept to production.",
     creditsLabel: "Selected work",
     credits: [
-      "PAPY",
-      "M-TRACK",
-      "SECURITY COMPASS",
-      "SENECA COLLEGE",
-      "BERNABUILDS"
+      { label: "PAPY", target: "project-papy" },
+      { label: "M-TRACK", target: "project-mtrack" },
+      { label: "SECURITY COMPASS", target: "project-security-compass" },
+      { label: "SENECA COLLEGE", target: "project-seneca-college" },
+      { label: "BERNABUILDS", target: "project-bernabuilds" }
     ],
     primaryCta: {
       label: "Download CV",
@@ -124,6 +124,7 @@ window.SITE = {
     moreLabel: "More Projects",
     features: [
       {
+        id: "project-papy",
         title: "Papy",
         logoText: "PAPY",
         status: "2024–Present · Open Source",
@@ -160,6 +161,7 @@ window.SITE = {
         producerLogo: ""
       },
       {
+        id: "project-mtrack",
         title: "M-Track",
         logoText: "M-TRACK",
         status: "2023–Present · Live",
@@ -196,6 +198,7 @@ window.SITE = {
         producerLogo: ""
       },
       {
+        id: "project-security-compass",
         title: "Cloud Management System",
         logoText: "CLOUD OPS",
         status: "2021–2025 · Internal",
@@ -215,6 +218,7 @@ window.SITE = {
         producerLogo: ""
       },
       {
+        id: "project-security-pipeline",
         title: "Security Pipeline Automation",
         logoText: "SECURE PIPELINE",
         status: "2021–2025 · Internal",
@@ -234,6 +238,7 @@ window.SITE = {
         producerLogo: ""
       },
       {
+        id: "project-bernabuilds",
         title: "BernaBuilds",
         logoText: "BERNABUILDS",
         status: "Ongoing · YouTube",
@@ -263,6 +268,7 @@ window.SITE = {
     ],
     more: [
       {
+        id: "project-seneca-college",
         title: "Python 2 → 3 Refactor",
         logoText: "PY3 REFACTOR",
         status: "2020–2021 · Research",
@@ -282,6 +288,7 @@ window.SITE = {
         producerLogo: "assets/seneca-logo.svg"
       },
       {
+        id: "project-hardware-simulation",
         title: "Hardware Simulation Optimization",
         logoText: "SIM OPTIMIZATION",
         status: "2020–2021 · Research",
