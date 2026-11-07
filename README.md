@@ -1,8 +1,5 @@
 # Brian Sawa — Portfolio
 
-A static personal portfolio styled after the editorial layout of
-[jacobhull.me](https://www.jacobhull.me/), built with plain HTML, CSS, and
-JavaScript. No build step or dependencies.
 
 ## Structure
 
@@ -58,20 +55,13 @@ Netlify, Vercel, Cloudflare Pages, S3, etc.). No configuration is required.
 
 ## Contact form
 
-The form posts to FormSubmit (`https://formsubmit.co/bsawasec@gmail.com`).
-The first submission requires confirming the email address with FormSubmit.
-
 To disable the service, set `contact.formAction` to an empty string. The form
 will then fall back to opening a pre-filled `mailto:` draft in the visitor's
 email client.
 
-## Notes
 
-- The resume in `assets/Brian_Sawa_Resume.pdf` is a copy of the source PDF in
-  `~/Documents`.
-- The portrait is the public Medium profile image. Replace
-  `assets/brian-sawa.jpg` to change it.
-- Project images are GitHub Open Graph cards for Papy and M-Track; other
-  projects use CSS gradient fallbacks with type watermarks.
-- The site respects `prefers-reduced-motion` and includes keyboard-accessible
-  navigation and a video modal.
+
+A static personal portfolio styled after the editorial layout of
+[jacobhull.me](https://www.jacobhull.me/), built with plain HTML, CSS, and
+JavaScript. No build step or dependencies.
+
